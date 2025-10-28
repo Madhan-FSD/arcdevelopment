@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import { Box } from "@mui/material";
 import Footer from "./ui/Foooter";
 import { useState } from "react";
+import LandingPage from "./LandingPage";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -18,7 +19,7 @@ function App() {
         setSelectedIndex={setSelectedIndex}
       />
       <Routes>
-        <Route path="/" element={<Box sx={{ height: "2000px" }}>Home</Box>} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/services" element={<Box>Services</Box>} />
         <Route path="/customsoftware" element={<Box>Custom Software</Box>} />
         <Route path="/mobileapps" element={<Box>Mobile Apps</Box>} />

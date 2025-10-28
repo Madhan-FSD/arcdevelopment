@@ -109,7 +109,7 @@ export default function Footer({
               component={Link}
               to="/mobileapps"
             >
-              Mobile App Development
+              iOS/Android App Development
             </StyledGridItem>
             <StyledGridItem
               onClick={() => {
