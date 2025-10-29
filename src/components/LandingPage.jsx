@@ -2,12 +2,21 @@ import React, { Fragment } from "react";
 import Lottie from "react-lottie";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import animationData from "../animations/landinganimation/data";
-import { Grid, Typography, Button, useTheme } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  Button,
+  useTheme,
+  Card,
+  CardContent,
+} from "@mui/material";
 import styled from "@emotion/styled";
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import { useMediaQuery } from "@mui/material";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
 import websitesIcon from "../assets/websiteIcon.svg";
+import revolutionBackground from "../assets/repeatingBackground.svg";
+import infoBackground from "../assets/infoBackground.svg";
 
 const StyledLottieGrid = styled(Grid)(({ theme }) => ({
   maxWidth: "50em",
@@ -89,6 +98,36 @@ const StyledServiceContainer = styled(Grid)(({ theme }) => ({
     padding: 25,
     marginTop: "3em",
   },
+}));
+
+const StyledRevolutionBackground = styled("div")(({ theme }) => ({
+  backgroundImage: `url(${revolutionBackground})`,
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  height: "100%",
+  width: "100%",
+}));
+
+const StyledRevolutionCard = styled(Card)(({ theme }) => ({
+  position: "absolute",
+  boxShadow: theme.shadows[10],
+  borderRadius: 15,
+  padding: "10em",
+  [theme.breakpoints.down("md")]: {
+    padding: "8em 0px",
+    borderRadius: 0,
+    width: "100%",
+  },
+}));
+
+const StyledInfoBackground = styled("div")(({ theme }) => ({
+  backgroundImage: `url(${infoBackground})`,
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  height: "100%",
+  width: "100%",
 }));
 
 export default function LandingPage() {
@@ -234,6 +273,130 @@ export default function LandingPage() {
             <StyledIcon alt="websites icon" src={websitesIcon} />
           </Grid>
         </StyledServiceContainer>
+      </Grid>
+      <Grid>
+        {/*-----The Revolution Block-----*/}
+        <Grid
+          container
+          sx={{
+            height: { md: "75em", xs: "50em" },
+            mt: { md: "10em", xs: "5em" },
+          }}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <StyledRevolutionCard>
+            <CardContent>
+              <Grid textAlign="center" container direction="column">
+                <Grid>
+                  <Typography gutterBottom variant="h3">
+                    The Revolution
+                  </Typography>
+                </Grid>
+                <Grid>
+                  <Typography variant="subtitle1">
+                    Visionary insights coupled with cutting-edge technology is a
+                    recipe for revolution.
+                  </Typography>
+                  <StyledLearnButtonHero
+                    endIcon={<ArrowForwardIcon color="primary" />}
+                    variant="outlined"
+                  >
+                    Learn More
+                  </StyledLearnButtonHero>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </StyledRevolutionCard>
+          <StyledRevolutionBackground />
+        </Grid>
+      </Grid>
+      <Grid>
+        {/*-----Information Block-----*/}
+        <Grid
+          sx={{ height: { md: "50em", xs: "40em" } }}
+          alignItems="center"
+          container
+          direction="row"
+        >
+          <Grid
+            width="100%"
+            position="absolute"
+            container
+            spacing={{ xs: 5, md: undefined }}
+          >
+            <Grid size={{ sm: 6, xs: 12 }}>
+              <Grid
+                container
+                direction="column"
+                sx={{
+                  textAlign: { xs: "center", md: "left" },
+                  ml: { xs: 0, sm: "5em" },
+                }}
+              >
+                <Typography sx={{ color: "white" }} variant="h2">
+                  About Us
+                </Typography>
+                <Typography variant="subtitle2">Let's get personal.</Typography>
+                <Grid sx={{ mt: { xs: 2 } }}>
+                  <StyledLearnButtonHero
+                    sx={{
+                      color: "white !important",
+                      borderColor: "white !important",
+                    }}
+                    endIcon={
+                      <ArrowForwardIcon
+                        sx={{ color: "white" }}
+                        color="primary"
+                      />
+                    }
+                    variant="outlined"
+                  >
+                    Learn More
+                  </StyledLearnButtonHero>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid size={{ sm: 6, xs: 12 }}>
+              <Grid
+                sx={{
+                  textAlign: { xs: "center", md: "right" },
+                  mr: { xs: 0, sm: "5em" },
+                }}
+                container
+                direction="column"
+              >
+                <Typography sx={{ color: "white" }} variant="h2">
+                  Contact Us
+                </Typography>
+                <Typography variant="subtitle2">
+                  Say hello!{" "}
+                  <span role="img" aria-label="emoji">
+                    👋🏻
+                  </span>
+                </Typography>
+                <Grid sx={{ mt: { xs: 2 } }}>
+                  <StyledLearnButtonHero
+                    sx={{
+                      color: "white !important",
+                      borderColor: "white !important",
+                    }}
+                    endIcon={
+                      <ArrowForwardIcon
+                        sx={{ color: "white" }}
+                        color="primary"
+                      />
+                    }
+                    variant="outlined"
+                  >
+                    Learn More
+                  </StyledLearnButtonHero>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <StyledInfoBackground />
+        </Grid>
       </Grid>
     </StyledMainContainerGrid>
   );
