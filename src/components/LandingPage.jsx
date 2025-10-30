@@ -17,6 +17,8 @@ import mobileAppsIcon from "../assets/mobileIcon.svg";
 import websitesIcon from "../assets/websiteIcon.svg";
 import revolutionBackground from "../assets/repeatingBackground.svg";
 import infoBackground from "../assets/infoBackground.svg";
+import CallToAction from "./ui/CallToAction";
+import { Link } from "react-router-dom";
 
 const StyledLottieGrid = styled(Grid)(({ theme }) => ({
   maxWidth: "50em",
@@ -43,7 +45,7 @@ const StyledButtonContainer = styled(Grid)(({ theme }) => ({
   marginTop: "1em",
 }));
 
-const StyledLearnButtonHero = styled(Button)(({ theme }) => ({
+export const StyledLearnButtonHero = styled(Button)(({ theme }) => ({
   ...theme.typography.learnButton,
   height: 45,
   width: 145,
@@ -130,9 +132,9 @@ const StyledInfoBackground = styled("div")(({ theme }) => ({
   width: "100%",
 }));
 
-export default function LandingPage() {
+export default function LandingPage({ setValue, setSelectedIndex }) {
   const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -148,9 +150,10 @@ export default function LandingPage() {
         {/*-----Hero Block-----*/}
         <Grid
           container
-          justifyContent="flex-end"
+          justifyContent={matchesMD ? "center" : "flex-end"}
           alignItems="center"
           direction="row"
+          sx={{ mt: { xs: 5 } }}
         >
           <StyledHeroTextContainer size={{ sm: 6 }}>
             <Typography variant="h2" align="center">
@@ -158,12 +161,20 @@ export default function LandingPage() {
             </Typography>
             <StyledButtonContainer container justifyContent="center">
               <Grid>
-                <StyledEstimateButton variant="contained">
+                <StyledEstimateButton
+                  component={Link}
+                  to="/estimate"
+                  variant="contained"
+                  onClick={() => setValue(5)}
+                >
                   Free Estimate
                 </StyledEstimateButton>
               </Grid>
               <Grid>
                 <StyledLearnButtonHero
+                  component={Link}
+                  onClick={() => setValue(2)}
+                  to="/revolution"
                   endIcon={<ArrowForwardIcon color="primary" />}
                   variant="outlined"
                 >
@@ -172,7 +183,7 @@ export default function LandingPage() {
               </Grid>
             </StyledButtonContainer>
           </StyledHeroTextContainer>
-          <StyledLottieGrid size={{ sm: 6 }}>
+          <StyledLottieGrid size={{ sm: 10, md: 6 }}>
             <Lottie options={defaultOptions} height={"100%"} width={"100%"} />
           </StyledLottieGrid>
         </Grid>
@@ -180,14 +191,14 @@ export default function LandingPage() {
       <Grid>
         {/*-----Custom Software Block-----*/}
         <StyledServiceContainer
-          justifyContent={matchesSM ? "center" : undefined}
+          justifyContent={matchesMD ? "center" : undefined}
           container
           direction="row"
         >
           <Grid
             sx={{
-              marginLeft: matchesSM ? 0 : "5em",
-              textAlign: matchesSM ? "center" : undefined,
+              marginLeft: matchesMD ? 0 : "5em",
+              textAlign: matchesMD ? "center" : undefined,
             }}
           >
             <Typography variant="h4">Custom Software Development</Typography>
@@ -199,6 +210,12 @@ export default function LandingPage() {
               <SpecialText>celebration</SpecialText>
             </Typography>
             <StyledLearnButton
+              onClick={() => {
+                setValue(1);
+                setSelectedIndex(1);
+              }}
+              component={Link}
+              to="/customsoftware"
               endIcon={<ArrowForwardIcon color="primary" />}
               variant="outlined"
             >
@@ -228,16 +245,22 @@ export default function LandingPage() {
             </StyledSubTitleText>
             <Typography variant="subtitle1">
               Integrate your web experience or create a standalone app{" "}
-              {matchesSM ? null : <br />} with either moblie platform.
+              {matchesMD ? null : <br />} with either moblie platform.
             </Typography>
             <StyledLearnButton
+              onClick={() => {
+                setValue(1);
+                setSelectedIndex(2);
+              }}
+              component={Link}
+              to="/mobileapps"
               endIcon={<ArrowForwardIcon color="primary" />}
               variant="outlined"
             >
               Learn More
             </StyledLearnButton>
           </Grid>
-          <Grid sx={{ marginRight: matchesSM ? 0 : "5em" }}>
+          <Grid sx={{ marginRight: matchesMD ? 0 : "5em" }}>
             <StyledIcon alt="ios/android icon" src={mobileAppsIcon} />
           </Grid>
         </StyledServiceContainer>
@@ -245,14 +268,14 @@ export default function LandingPage() {
       <Grid>
         {/*-----Websites Block-----*/}
         <StyledServiceContainer
-          justifyContent={matchesSM ? "center" : undefined}
+          justifyContent={matchesMD ? "center" : undefined}
           container
           direction="row"
         >
           <Grid
             sx={{
-              marginLeft: matchesSM ? 0 : "5em",
-              textAlign: matchesSM ? "center" : undefined,
+              marginLeft: matchesMD ? 0 : "5em",
+              textAlign: matchesMD ? "center" : undefined,
             }}
           >
             <Typography variant="h4">Website Development</Typography>
@@ -263,6 +286,12 @@ export default function LandingPage() {
               Optimized for Search Engines, built for speed
             </Typography>
             <StyledLearnButton
+              onClick={() => {
+                setValue(1);
+                setSelectedIndex(3);
+              }}
+              component={Link}
+              to="/websites"
               endIcon={<ArrowForwardIcon color="primary" />}
               variant="outlined"
             >
@@ -299,6 +328,9 @@ export default function LandingPage() {
                     recipe for revolution.
                   </Typography>
                   <StyledLearnButtonHero
+                    component={Link}
+                    onClick={() => setValue(2)}
+                    to="/revolution"
                     endIcon={<ArrowForwardIcon color="primary" />}
                     variant="outlined"
                   >
@@ -340,6 +372,9 @@ export default function LandingPage() {
                 <Typography variant="subtitle2">Let's get personal.</Typography>
                 <Grid sx={{ mt: { xs: 2 } }}>
                   <StyledLearnButtonHero
+                    onClick={() => setValue(3)}
+                    component={Link}
+                    to="/about"
                     sx={{
                       color: "white !important",
                       borderColor: "white !important",
@@ -377,6 +412,9 @@ export default function LandingPage() {
                 </Typography>
                 <Grid sx={{ mt: { xs: 2 } }}>
                   <StyledLearnButtonHero
+                    onClick={() => setValue(4)}
+                    component={Link}
+                    to="/contact"
                     sx={{
                       color: "white !important",
                       borderColor: "white !important",
@@ -397,6 +435,10 @@ export default function LandingPage() {
           </Grid>
           <StyledInfoBackground />
         </Grid>
+      </Grid>
+      <Grid>
+        {/*-----CallToAction Block-----*/}
+        <CallToAction setValue={setValue} />
       </Grid>
     </StyledMainContainerGrid>
   );

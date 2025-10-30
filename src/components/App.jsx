@@ -19,7 +19,15 @@ function App() {
         setSelectedIndex={setSelectedIndex}
       />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route
+          path="/"
+          element={
+            <LandingPage
+              setValue={setValue}
+              setSelectedIndex={setSelectedIndex}
+            />
+          }
+        />
         <Route path="/services" element={<Box>Services</Box>} />
         <Route path="/customsoftware" element={<Box>Custom Software</Box>} />
         <Route path="/mobileapps" element={<Box>Mobile Apps</Box>} />
@@ -30,8 +38,6 @@ function App() {
         <Route path="/estimate" element={<Box>Estimate</Box>} />
       </Routes>
       <Footer
-        value={value}
-        setValue={setValue}
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
       />

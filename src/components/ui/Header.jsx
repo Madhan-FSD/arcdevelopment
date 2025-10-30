@@ -8,7 +8,6 @@ import {
   Button,
   Menu,
   MenuItem,
-  Paper,
   Tab,
   Tabs,
   useMediaQuery,
@@ -216,6 +215,9 @@ export default function Header({
             }
           }
           break;
+        case "/estimate":
+          setValue(5);
+          break;
         default:
           break;
       }
@@ -263,7 +265,13 @@ export default function Header({
           />
         ))}
       </TabsContainer>
-      <StyledButton variant="contained" color="secondary">
+      <StyledButton
+        onClick={() => setValue(5)}
+        component={Link}
+        to="/estimate"
+        variant="contained"
+        color="secondary"
+      >
         Free Estimate
       </StyledButton>
       <StyledMenu

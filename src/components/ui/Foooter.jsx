@@ -63,12 +63,7 @@ const StyledIcon = styled("svg")(({ theme }) => ({
   },
 }));
 
-export default function Footer({
-  value,
-  setValue,
-  selectedIndex,
-  setSelectedIndex,
-}) {
+export default function Footer({ setValue, setSelectedIndex }) {
   return (
     <StyledFooter>
       <StyledGridContainer justifyContent="center" container>
