@@ -52,7 +52,7 @@ export const StyledLearnButtonHero = styled(Button)(({ theme }) => ({
   fontSize: "0.9rem",
 }));
 
-const StyledLearnButton = styled(Button)(({ theme }) => ({
+export const StyledLearnButton = styled(Button)(({ theme }) => ({
   ...theme.typography.learnButton,
   height: 35,
   fontSize: "0.75rem",
@@ -78,23 +78,23 @@ const StyledHeroTextContainer = styled(Grid)(({ theme }) => ({
   minWidth: "21.5em",
 }));
 
-const SpecialText = styled("span")(({ theme }) => ({
+export const SpecialText = styled("span")(({ theme }) => ({
   fontFamily: "Pacifico",
   color: theme.palette.common.orange,
 }));
 
-const StyledSubTitleText = styled(Typography)(({ theme }) => ({
+export const StyledSubTitleText = styled(Typography)(({ theme }) => ({
   marginBottom: "1em",
 }));
 
-const StyledIcon = styled("img")(({ theme }) => ({
+export const StyledIcon = styled("img")(({ theme }) => ({
   marginLeft: "2em",
   [theme.breakpoints.down("xs")]: {
     marginLeft: 0,
   },
 }));
 
-const StyledServiceContainer = styled(Grid)(({ theme }) => ({
+export const StyledServiceContainer = styled(Grid)(({ theme }) => ({
   marginTop: "12em",
   [theme.breakpoints.down("sm")]: {
     padding: 25,
