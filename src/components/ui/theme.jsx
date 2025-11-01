@@ -68,6 +68,11 @@ const theme = createTheme({
       fontFamily: "Roboto",
       fontWeight: "bold",
     },
+    body1: {
+      fontSize: "1.25em",
+      fontWeight: 300,
+      color: arcGray,
+    },
   },
 });
 
