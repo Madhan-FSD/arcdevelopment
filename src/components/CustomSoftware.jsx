@@ -21,18 +21,18 @@ import automationAnimation from "../animations/automationAnimation/data.json";
 import uxAnimation from "../animations/uxAnimation/data";
 import CallToAction from "./ui/CallToAction";
 
-const StyledArrowButtonGrid = styled(Grid)(({ theme }) => ({
+export const StyledArrowButtonGrid = styled(Grid)(({ theme }) => ({
   marginTop: "0.5em",
 }));
 
-const StyledHeadingGrid = styled(Grid)(({ theme }) => ({
+export const StyledHeadingGrid = styled(Grid)(({ theme }) => ({
   maxWidth: "40em",
   [theme.breakpoints.down("md")]: {
     width: "100%",
   },
 }));
 
-const StyledGrid = styled(Grid)(({ theme }) => ({
+export const StyledGrid = styled(Grid)(({ theme }) => ({
   paddingLeft: "5em",
   paddingRight: "5em",
   paddingTop: "2em",
@@ -123,6 +123,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
               align={matchesXS ? "center" : "inherit"}
               component="p"
               variant="body1"
+              gutterBottom
             >
               Whether we’re replacing old software or inventing new solutions,
               Arc Development is here to help your business tackle technology.
@@ -131,6 +132,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
               align={matchesXS ? "center" : "inherit"}
               component="p"
               variant="body1"
+              gutterBottom
             >
               Using regular commercial software leaves you with a lot of stuff
               you don’t need, without some of the stuff you do need, and
@@ -139,6 +141,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
               savings from increased efficiency.
             </Typography>
             <Typography
+              gutterBottom
               align={matchesXS ? "center" : "inherit"}
               component="p"
               variant="body1"
@@ -150,6 +153,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
               options.
             </Typography>
             <Typography
+              gutterBottom
               align={matchesXS ? "center" : "inherit"}
               variant="body1"
               component="p"
@@ -178,8 +182,8 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
         direction="row"
         justifyContent="space-evenly"
         sx={{
-          mt: { xs: "5em", sm: "7.5em", md: "15em" },
-          mb: { xs: "10em", sm: "7.5em", md: "20em" },
+          mt: { xs: "5em", sm: "7.5em", md: "5em" },
+          mb: { xs: "5em", sm: "7.5em", md: "5em" },
           flexDirection: { xs: "column", sm: "row", md: "row" },
           gap: { xs: "5em", sm: 0, md: 0 },
         }}
@@ -218,7 +222,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
         direction="row"
         sx={{
           textAlign: { sm: "center", md: "inherit" },
-          px: { sm: "5em", md: 0 },
+          px: { sm: "5em", md: "auto" },
         }}
         justifyContent={matchesMD ? "center" : "flex-start"}
       >
@@ -231,6 +235,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
             </Grid>
             <Grid>
               <Typography
+                gutterBottom
                 align={matchesXS ? "center" : "inherit"}
                 variant="body1"
                 component="p"
@@ -238,6 +243,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
                 Reduce Errors. Reduce Waste. Reduce Costs.
               </Typography>
               <Typography
+                gutterBottom
                 align={matchesXS ? "center" : "inherit"}
                 variant="body1"
                 component="p"
@@ -247,6 +253,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
                 impact this has, it causes harm to your bottom line as well.
               </Typography>
               <Typography
+                gutterBottom
                 align={matchesXS ? "center" : "inherit"}
                 variant="body1"
                 component="p"
@@ -273,8 +280,8 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
         direction="row"
         sx={{
           textAlign: { sm: "center", md: "inherit" },
-          mt: { xs: "10em", md: "20em" },
-          px: { sm: "5em", md: 0 },
+          mt: { xs: "10em", md: "10em" },
+          px: { sm: "5em", md: "auto" },
         }}
         justifyContent={matchesMD ? "center" : "space-around"}
       >
@@ -300,6 +307,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
             </Grid>
             <Grid>
               <Typography
+                gutterBottom
                 variant="body1"
                 align={matchesMD ? "center" : "left"}
                 component="p"
@@ -317,9 +325,9 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
         justifyContent="center"
         direction="row"
         sx={{
-          mt: { xs: "5em", md: "20em" },
-          mb: { xs: "5em", md: "20em" },
-          px: { sm: "5em", md: 0 },
+          mt: { xs: "5em", md: "10em" },
+          mb: { xs: "5em", md: "10em" },
+          px: { sm: "5em", md: "auto" },
         }}
       >
         <Grid
@@ -340,10 +348,20 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
             <Typography variant="h4" align="center" gutterBottom>
               Root-Cause Analysis
             </Typography>
-            <Typography variant="body1" align="center" component="p">
+            <Typography
+              gutterBottom
+              variant="body1"
+              align="center"
+              component="p"
+            >
               Many problems are merely symptoms of larger, underlying issues.
             </Typography>
-            <Typography variant="body1" align="center" component="p">
+            <Typography
+              gutterBottom
+              variant="body1"
+              align="center"
+              component="p"
+            >
               We can help you thoroughly examine all areas of your business to
               develop a holistic plan for the most effective implementation of
               technology.
@@ -356,7 +374,9 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
         direction="row"
         sx={{
           textAlign: { sm: "center", md: "inherit" },
-          px: { sm: "5em", md: 0 },
+          px: { sm: "5em", md: "10em" },
+          mt: { xs: "5em", md: "1em" },
+          mb: { xs: "5em", md: "1em" },
         }}
         justifyContent={matchesMD ? "center" : "flex-start"}
       >
@@ -369,6 +389,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
             </Grid>
             <Grid>
               <Typography
+                gutterBottom
                 align={matchesXS ? "center" : "inherit"}
                 variant="body1"
                 component="p"
@@ -376,6 +397,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
                 Why waste time when you don’t have to?
               </Typography>
               <Typography
+                gutterBottom
                 align={matchesXS ? "center" : "inherit"}
                 variant="body1"
                 component="p"
@@ -384,6 +406,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
                 actions which can now easily be automated.
               </Typography>
               <Typography
+                gutterBottom
                 align={matchesXS ? "center" : "inherit"}
                 variant="body1"
                 component="p"
@@ -409,8 +432,8 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
         direction="row"
         sx={{
           textAlign: { sm: "center", md: "inherit" },
-          mt: { xs: "10em", md: "20em" },
-          px: { sm: "5em", md: 0 },
+          mt: { xs: "10em" },
+          px: { sm: "5em", md: "auto" },
         }}
         justifyContent={matchesMD ? "center" : "space-around"}
       >
@@ -436,6 +459,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
             </Grid>
             <Grid>
               <Typography
+                gutterBottom
                 variant="body1"
                 align={matchesMD ? "center" : "left"}
                 component="p"
@@ -443,6 +467,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
                 A good design that isn’t usable isn’t a good design.
               </Typography>
               <Typography
+                gutterBottom
                 variant="body1"
                 align={matchesMD ? "center" : "left"}
                 component="p"
@@ -451,6 +476,7 @@ const CustomSoftware = ({ setSelectedIndex, setValue }) => {
                 and frustrating?
               </Typography>
               <Typography
+                gutterBottom
                 variant="body1"
                 align={matchesMD ? "center" : "left"}
                 component="p"
